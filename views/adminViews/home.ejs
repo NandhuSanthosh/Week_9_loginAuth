@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <%- include('../partials/generalHead.ejs') %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/login-signin.css">
+        <link rel="stylesheet" href="/styles/homePage.css">
+</head>
+
+<body class="">
+
+    <header class=" p-4 d-flex align-items-center justify-content-between ">
+        <div class="header-logo" style="flex: 2">
+            <a href="#">
+                <h2>UI</h2>
+            </a>
+        </div>
+        <nav style="flex: 1">
+            <ul class="d-none d-md-flex gap-10 align-items-center">
+                
+                <li><a href="#" id="userListBtn" class="active" >User List</a></li>
+                <li><a href="#" id="createUserBtn" class=" ">Create User</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <div class="signout-btn">
+                <a type="button" class="btn btn-primary" id="logout-btn">Sign Out</a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="p-4">
+        <section class="hero-container container-fluid h-60">
+            <!-- user list starts here -->
+            <div id="userListContainer">
+                <div class="header mt-5 d-flex justify-content-between">
+                    <h3>User List</h3>
+
+                    <div class="search d-flex align-items-center" id="userSearchDiv">
+                        <input type="text" class="form-control"  id="searchNameField" aria-describedby="nameSearch" placeholder="Enter name">
+                        <button id="searchUserButton" class="btn btn-primary ml-1" type="button">Search</button>
+                    </div>
+                </div>
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Blocked</th>
+                            <th scope="col">Profile</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userListTableBody">
+                    </tbody>
+                </table>
+            </div>
+            <!-- user list ends here -->
+
+            <!-- create user starts here -->
+            <div id="createUserContainer" style="display: none">
+                <h1>Create User</h1>
+
+                <div class="form-inner-container">
+                    <form action="/signin" id="adminSideCreateUser" method="POST" enctype="multipart/form-data">
+                        <div class="form-group fs-form-field fw-semi-bold">
+                            <label for="exampleInputName">Name</label>
+                            <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" name="name"
+                                placeholder="Enter name">
+                            <div class="ml-4 error-span-parent"></div>
+                        </div>
+                        <div class="form-group fs-form-field fw-semi-bold">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+                                placeholder="Enter email">
+                            <div class="ml-4 error-span-parent"></div>
+                        </div>
+                        <div class="form-group fs-form-field fw-semi-bold">
+                            <label for="exampleInputPassword1 ">Password</label>
+                            <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                                placeholder="Password">
+                            <div class="ml-4 error-span-parent"></div>
+                        </div>
+                        <div class="form-group fs-form-field fw-semi-bold">
+                            <label for="exampleInputPassword1 ">Confirm Password</label>
+                            <input type="password" class="form-control" name="password2" id="exampleInputPasswordConfirm1"
+                                placeholder="Password">
+                            <div class="ml-4 error-span-parent"></div>
+                        </div>
+                        <div class="form-group fs-form-field fw-semi-bold d-flex justify-content-end w-100">
+                            <label for="exampleInputFile" class="btn btn-">Upload Image</label>
+                            <input style="display: none;" type="file" accept="image/jpeg, image/png, image/jpg" class="form-control"
+                                name="url" id="exampleInputFile" placeholder="Password">
+                            <div class="ml-4 error-span-parent"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 fs-form-field fw-semi-bold submit-btn">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+            <!-- create user ends here -->
+
+            <!-- selected user starts here -->
+            <div id="selectedUserContainer" style="display: none">
+                <h1>Update User</h1>
+
+                <div class="form-inner-container">
+                    <div class="d-md-flex align-items-center selectedUserContainer">
+                        <div class="image-container d-flex justify-content-center">
+                            <img id="selectedUserImage" src="" alt=""> 
+                        </div>
+                        <form action="/signin" id="adminSideUpdateUser" method="POST" enctype="multipart/form-data" style="flex: 1">
+                            <div class="form-group fs-form-field fw-semi-bold">
+                                <label for="exampleInputName">Name</label>
+                                <input type="text" class="form-control" id="selectedUserName" aria-describedby="emailHelp" name="name"
+                                    placeholder="Enter name">
+                                <div class="ml-4 error-span-parent"></div>
+                            </div>
+                            <div class="form-group fs-form-field fw-semi-bold">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="email" class="form-control" id="selectedUserEmail" aria-describedby="emailHelp" name="email"
+                                    placeholder="Enter email">
+                                <div class="ml-4 error-span-parent"></div>
+                            </div>
+                            
+                            <!-- <div class="form-group fs-form-field fw-semi-bold d-flex justify-content-end w-100">
+                                <label for="exampleInputFile" class="btn btn-">Upload Image</label>
+                                <input style="display: none;" type="file" accept="image/jpeg, image/png, image/jpg" class="form-control"
+                                    name="url" id="selectedUserFile" placeholder="Password">
+                                <div class="ml-4 error-span-parent"></div>
+                            </div> -->
+                            <button type="submit" class="btn btn-primary w-100 fs-form-field fw-semi-bold submit-btn">Submit</button>
+                            <button type="button" class="mt-4 btn btn-danger w-100 fs-form-field fw-semi-bold " id="blockButton">Block User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- selected user ends here -->
+        </section>
+    </main>
+
+    <script src="/js/formValidationUtils.js"></script>
+    <script src="/js/formValidation.js"></script>
+    <script src="/js/admin_userList.js"></script>
+    <script>
+        const logoutBtn = document.getElementById('logout-btn');
+        logoutBtn.addEventListener('click', async (e) => {
+            let status = confirm("Do you really want to logout?")
+            if (status) {
+                console.log(status);
+                await fetch('http://localhost:3000/admin/logout')
+                location.assign('/admin/login')
+            }
+            else {
+                console.log(status)
+            }
+        })
+    </script>
+</body>
+
+</html>

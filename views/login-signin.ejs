@@ -1,0 +1,39 @@
+<html>
+<head>
+    <%- include('./partials/generalHead.ejs') %>
+    <link rel="stylesheet" href="/styles/login-signin.css">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <div class="row h-100">
+            <div class="left col-12 col-md-6">
+                <div class="left-content-conatiner d-flex flex-column h-100">
+                    <div class="pageHeader">
+                        <h3>Untitled UI</h3>
+                    </div>
+                    
+                    <% if(page == 'Login') { %>
+                        <%- include('./partials/login-page.ejs') %>
+                    <% }else{ %>
+                        <%- include('./partials/signin-page.ejs') %>
+                    <%}%>
+
+                    <div class="first-footer">
+                        <p>&#169;Untitled UI 2077</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right col-6 d-none d-md-block">
+                <div class="background-image-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/formValidationUtils.js"></script>
+    <script src="/js/formValidation.js"></script>
+</body>
+
+</html>

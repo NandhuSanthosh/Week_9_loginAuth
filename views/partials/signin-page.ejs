@@ -1,0 +1,49 @@
+<div class="form-container d-flex justify-content-center align-items-center">
+    <div class="form-width">
+        <div class="form-header text-center pb-3">
+            <h3>Hey Welcome</h3>
+            <p>Please enter your details</p>
+        </div>
+
+        <div class="form-inner-container">
+            <form action="/signin" id="signupForm" method="POST" enctype="multipart/form-data">
+                <div class="form-group fs-form-field fw-semi-bold">
+                    <label for="exampleInputName">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp"
+                        name="name" placeholder="Enter name">
+                    <div class="ml-4 error-span-parent"></div>
+                </div>
+                <div class="form-group fs-form-field fw-semi-bold">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        name="email" placeholder="Enter email">
+                    <div class="ml-4 error-span-parent"></div>
+                </div>
+                <div class="form-group fs-form-field fw-semi-bold">
+                    <label for="exampleInputPassword1 ">Password</label>
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                        placeholder="Password">
+                    <div class="ml-4 error-span-parent"></div>
+                </div>
+                <div class="form-group fs-form-field fw-semi-bold">
+                    <label for="exampleInputPassword1 ">Confirm Password</label>
+                    <input type="password" class="form-control" name="password2" id="exampleInputPasswordConfirm1"
+                        placeholder="Password">
+                    <div class="ml-4 error-span-parent"></div>
+                </div>
+                <div class="form-group fs-form-field fw-semi-bold d-flex justify-content-end w-100">
+                    <label for="exampleInputFile" class="btn btn-">Upload Image</label>
+                    <input style="display: none;" type="file" accept="image/jpeg, image/png, image/jpg" class="form-control" name="url" id="exampleInputFile"
+                        placeholder="Password">
+                    <div class="ml-4 error-span-parent"></div>
+                </div>
+                <button type="submit"
+                    class="btn btn-primary w-100 fs-form-field fw-semi-bold submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <div class="signin-link-container text-center fs-form-field">
+            <p>Already have an account? <a href="/login">Login</a></p>
+        </div>
+    </div>
+</div>

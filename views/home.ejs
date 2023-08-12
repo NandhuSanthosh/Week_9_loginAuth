@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <%- include('./partials/generalHead.ejs') %>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/homePage.css">
+    </head>
+    <body class="">
+        <header class=" p-4 d-flex align-items-center justify-content-between">
+            <div class="header-logo">
+                <a href="#" >
+                    <h2>UI</h2>
+                </a>
+            </div>
+            <nav>
+                <ul class="d-none d-md-flex gap-10 align-items-center">
+                    <li><a href="#">Workouts & Programs</a></li>
+                    <li><a href="#">Nutrition Plans</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+            </nav>
+            <div class="header-right">
+                <div class="signout-btn">
+                    <a type="button" class="btn btn-primary" id="logout-btn">Sign Out</a>
+                </div>
+
+                <div class="user-profile">
+                    <img class=".zoom" src=<%=locals.userDetails.profileUrl %> alt="">
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="hero-container container-fluid h-60">
+                <div class="mx-5 my-4">
+                    <div class="row h-100">
+                        <div class="left col-12 col-md-4 mr-auto d-flex flex-column gap-10">
+                            <h3>It's Time To Regain Your Fitness</h3>
+                            <p>Do fitness anywhere and anytime with our trainer videos</p>
+                            <button type="button" class="btn btn-danger try-it-button">Try It For Free</button>    
+                        </div>
+                        <div class="d-none d-md-block col-7 hero-section">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="container-fluid">
+                <div class="row mt-5 mx-5">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="logo-section">
+                            <span class="material-icons icon-size yellow">edit_calendar</span>
+                        </div>
+                        <div class="tile-heading">
+                            <p>Daily Workout 7 Days a Week</p>
+                        </div>
+                        <div class="tile-description">
+                            <p>Get personalized workouts on a daily basis from professionals.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="logo-section">
+                            <span class="material-icons icon-size red">desktop_windows</span>
+                        </div>
+                        <div class="tile-heading">
+                            <p>Access From Any Platform</p>
+                        </div>
+                        <div class="tile-description">
+                            <p>Use all the benifits of the services anywhere and on any device.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <div class="logo-section">
+                            <span class="material-icons icon-size blue">auto_stories</span>
+                        </div>
+                        <div class="tile-heading">
+                            <p>Guides and Community</p>
+                        </div>
+                        <div class="tile-description">
+                            <p>A private community where we help each other.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            const logoutBtn = document.getElementById('logout-btn');
+            logoutBtn.addEventListener('click', async(e)=>{
+                let status = confirm("Do you really want to logout?")
+                if(status){
+                    console.log(status);
+                    await fetch('http://localhost:3000/logout')
+                    location.assign('/login')
+                }
+                else{
+                    console.log(status)
+                }
+            })
+        </script>
+    </body>
+</html>
